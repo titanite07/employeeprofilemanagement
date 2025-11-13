@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/titanite07/employeeprofilemanagement'
+                git branch: 'master', url: 'https://github.com/titanite07/employeeprofilemanagement'
             }
         }
 
