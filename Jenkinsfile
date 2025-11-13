@@ -7,7 +7,7 @@ pipeline {
         DOCKER_IMAGE = "employeeprofilemanagement_image"
 
         // Database URL used when dockerization is done for the application
-        DB_URL = "jdbc:postgresql://host.docker.internal:5432/epms_db"
+        DB_URL = "jdbc:postgresql://host.docker.internal:5433/epms_db"
     }
 
     // Various stages in the Pipeline Process:
@@ -28,7 +28,7 @@ pipeline {
         stage('Run Container') {
             steps {
                 script {
-                    bat "docker run -e DB_URL=jdbc:postgresql://host.docker.internal:5432/epms_db -d --name employeeprofilemanagement -p 8200:8200 ${DOCKER_IMAGE}:${BUILD_NUMBER}"
+                    bat "docker run -e DB_URL=jdbc:postgresql://host.docker.internal:5433/epms_db -d --name employeeprofilemanagement -p 8200:8200 ${DOCKER_IMAGE}:${BUILD_NUMBER}"
                 }
             }
         }
